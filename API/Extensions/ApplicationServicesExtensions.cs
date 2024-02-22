@@ -4,8 +4,6 @@ using API.Interfaces;
 using API.Services;
 using API.Database;
 using API.Shared;
-using API.Services;
-using API.Interfaces;
 
 namespace API.Extensions
 {

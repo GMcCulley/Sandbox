@@ -12,6 +12,10 @@ namespace API.Services
         }
         public string FindEmailByClaims()
         {
+            if (_httpContextAccessor.HttpContext == null)
+            {
+                throw new InvalidProgramException();
+            }
             return _httpContextAccessor.HttpContext.User.Claims.First(x => x.Type == ClaimTypes.Email).Value;
         }
     }
