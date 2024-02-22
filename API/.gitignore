@@ -477,6 +477,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # DOTNET app settings
-# appsettings.json
-# appsettings.*.json
+appsettings.json
+appsettings.*.json
 launchSettings.json
