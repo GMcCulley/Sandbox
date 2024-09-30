@@ -1,0 +1,24 @@
+{
+	"Logging": {
+		"LogLevel": {
+			"Default": "Information",
+			"Microsoft.AspNetCore": "Warning"
+		}
+	},
+	"AllowedHosts": "*",
+	"ConnectionStrings": {
+		"Default": "SOME_DB_CONNECTION_STRING"
+	},
+	"Jwt": {
+		"Key": "SOME_KEY",
+		"Issuer": "SOME_ISSUER"
+	},
+	"DefaultUser": {
+		"Email": "SOME_EMAIL",
+		"Username": "SOME_USER_NAME",
+		"Password": "SOME_DEFAULT_PASSWORD"
+	},
+	"Token": {
+		"Key": "SOME_RANDOM_KEY"
+	}
+}

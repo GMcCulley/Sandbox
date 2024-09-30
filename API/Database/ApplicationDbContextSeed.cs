@@ -11,13 +11,15 @@ namespace API.Database
             {
                 var user = new AppUser
                 {
-                    Email = "developer@ucube.dev",
-                    UserName = "DeveloperUser",
+                    Email = config["DefaultUser:Email"] ??
+                        throw new InvalidOperationException("Configuration string 'DefaultUser:Email' not found"),
+                    UserName = config["DefaultUser:Username"] ??
+                        throw new InvalidOperationException("Configuration string 'DefaultUser:Username' not found"),
                 };
                 var result = await userManager.CreateAsync(
                     user,
-                    config["DefaultUserPassword"] ??
-                        throw new InvalidOperationException("Configuration string 'DefaultUserPassword' not found")
+                    config["DefaultUser:Password"] ??
+                        throw new InvalidOperationException("Configuration string 'DefaultUser:Password' not found")
                 );
             }
         }

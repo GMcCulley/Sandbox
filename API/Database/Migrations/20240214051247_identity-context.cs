@@ -21,7 +21,7 @@ namespace API.Database.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    RoleId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    RoleId = table.Column<Guid>(type: "char(36)", nullable: false),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true)
@@ -39,7 +39,7 @@ namespace API.Database.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false),
                     ClaimType = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ClaimValue = table.Column<string>(type: "longtext", nullable: true)
@@ -61,7 +61,7 @@ namespace API.Database.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ProviderDisplayName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,8 +72,8 @@ namespace API.Database.Migrations
                 name: "UserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    RoleId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false),
+                    RoleId = table.Column<Guid>(type: "char(36)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,13 +84,13 @@ namespace API.Database.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     CreatedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     EditedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     DeletedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     UserName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedUserName = table.Column<string>(type: "longtext", nullable: true)
@@ -142,7 +142,7 @@ namespace API.Database.Migrations
                 name: "UserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    UserId = table.Column<Guid>(type: "char(36)", nullable: false),
                     LoginProvider = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Name = table.Column<string>(type: "longtext", nullable: false)
@@ -159,13 +159,13 @@ namespace API.Database.Migrations
                 name: "Roles",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     CreatedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     EditedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     DeletedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedName = table.Column<string>(type: "longtext", nullable: true)
@@ -201,13 +201,13 @@ namespace API.Database.Migrations
                 name: "TrackedEntity",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     CreatedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     EditedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     DeletedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false)
                 },
                 constraints: table =>
                 {

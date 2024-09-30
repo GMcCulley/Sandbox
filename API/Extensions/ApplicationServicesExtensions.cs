@@ -4,6 +4,8 @@ using API.Interfaces;
 using API.Services;
 using API.Database;
 using API.Shared;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Sqlite.Infrastructure.Internal;
 
 namespace API.Extensions
 {
@@ -14,8 +16,13 @@ namespace API.Extensions
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                var connectionString = config.GetConnectionString("DefaultConnection");
-                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+				// MySQL
+                // var connectionString = config.GetConnectionString("DefaultConnection");
+                // options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+
+				// SQLite
+				var connectionString = config.GetConnectionString("Application") ?? "Data Source=Application.db";
+				options.UseSqlite(connectionString, sqLiteOptions => {});
             });
 
             services.AddScoped<ITokenService, TokenService>();
@@ -41,7 +48,7 @@ namespace API.Extensions
 
             services.AddCors(opt =>
             {
-                opt.AddPolicy("CorsPolicy", policy => 
+                opt.AddPolicy("CorsPolicy", policy =>
                 {
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200");
                 });

@@ -14,10 +14,10 @@ namespace API.Extensions
 {
     public static class IdentityServiceExtensions
     {
-        public static IServiceCollection AddIdentityServices(this IServiceCollection services, 
+        public static IServiceCollection AddIdentityServices(this IServiceCollection services,
             IConfiguration config)
         {
-            services.AddIdentityCore<AppUser>(options => 
+            services.AddIdentityCore<AppUser>(options =>
             {
                 // add identity options here
             })
@@ -52,7 +52,8 @@ namespace API.Extensions
                             config["Jwt:Key"] ??
                                 throw new InvalidOperationException("Connection string 'Jwt:Key' not found")
                             )),
-                        ValidIssuer = config["Jwt:Issuer"],
+                        ValidIssuer = config["Jwt:Issuer"] ??
+							throw new InvalidOperationException("Connection string 'Jwt:Issuer' not found"),
                         ValidateIssuer = true,
                         ValidateAudience = false,
                     };

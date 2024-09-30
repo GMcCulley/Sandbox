@@ -480,3 +480,8 @@ $RECYCLE.BIN/
 appsettings.json
 appsettings.*.json
 launchSettings.json
+
+# SqLite database file
+*.db
+*.db-shm
+*.db-wal

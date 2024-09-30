@@ -316,10 +316,10 @@ namespace API.Database.Migrations
                 name: "TrackedEntity",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false),
+                    CreatedById = table.Column<Guid>(type: "char(36)", nullable: false),
+                    DeletedById = table.Column<Guid>(type: "char(36)", nullable: false),
+                    EditedById = table.Column<Guid>(type: "char(36)", nullable: false),
                     CreatedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     DeletedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     EditedUtc = table.Column<DateTime>(type: "datetime(6)", nullable: false)
